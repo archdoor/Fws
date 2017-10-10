@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 5个日志级别：DEBUG, INFO, WARNING, ERROR, CRITICAL -->
+<!-- 3个日志输出方式：CONSOLE, LOGFILE, DUAL -->
+
+<Configs>
+
+	<!-- 集中检测系统模块配置 -->
+	<Module-Monitor>
+		<LogLevel>DEBUG</LogLevel>	
+		<LogMode>DUAL</LogMode>
+		<Ip>127.0.0.1</Ip>
+		<TcpPortForModuleInterface>8888</TcpPortForModuleInterface>
+		<!-- 数据超时时间 -->
+		<TcpRecvTimeout>120</TcpRecvTimeout>
+		<!-- 服务器重连次数: 0 表示一直重连，直到成功 -->
+		<TcpReconnectTime>0</TcpReconnectTime>
+		<!-- 服务器重连时间间隔 -->
+		<TcpReconnectInterval>5</TcpReconnectInterval>
+	</Module-Monitor>
+
+	<!-- 用户信息处理模块 -->
+	<Module-Users>
+		<Id>0x01</Id>
+		<LogLevel>DEBUG</LogLevel>	
+		<LogMode>DUAL</LogMode>
+		<Ip>127.0.0.1</Ip>
+		<TcpPortForModuleEquip>33000</TcpPortForModuleEquip>
+		<UdpPortForModuleSafety>35100</UdpPortForModuleSafety>
+		<UdpPortForModuleCLinker>35101</UdpPortForModuleCLinker>
+	</Module-Users>
+
+	<!-- 集中检测系统接口模块 -->
+	<Module-Interface>
+		<Id>0x02</Id>
+		<LogLevel>DEBUG</LogLevel>	
+		<LogMode>DUAL</LogMode>
+		<Ip>127.0.0.1</Ip>
+	</Module-Interface>
+
+	<!-- 安全处理模块 -->
+	<Module-Safety>
+		<Id>0x03</Id>
+		<LogLevel>DEBUG</LogLevel>	
+		<LogMode>DUAL</LogMode>
+		<Ip>127.0.0.1</Ip>
+		<UdpPortForModuleUsers>35000</UdpPortForModuleUsers>
+		<UdpPortForModuleInterface>35001</UdpPortForModuleInterface>
+		<UdpPortForModuleCLinker>35002</UdpPortForModuleCLinker>
+	</Module-Safety>
+
+	<!-- 客户端连接模块 -->
+	<Module-CLinker>
+		<Id>0x04</Id>
+		<LogLevel>DEBUG</LogLevel>	
+		<LogMode>DUAL</LogMode>
+		<Ip>127.0.0.1</Ip>
+		<UdpPortForModuleUsers>35200</UdpPortForModuleUsers>
+		<UdpPortForModuleInterface>35201</UdpPortForModuleInterface>
+		<UdpPortForModuleSafety>35202</UdpPortForModuleSafety>
+	</Module-CLinker>
+
+	<!-- 转发代理平台模块 -->
+	<Module-Proxy>
+		<Id>0x81</Id>
+		<LogLevel>DEBUG</LogLevel>	
+		<LogMode>DUAL</LogMode>
+		<Ip>127.0.0.1</Ip>
+		<TcpPortForModuleUsers>34001</TcpPortForModuleUsers>
+	</Module-Proxy>
+
+</Configs>
